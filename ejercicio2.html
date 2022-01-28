@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1> Arreglo ordenado</H1>
+    <ul id ="ord"></ul>
+    <script>
+        inicio = ["uno","dos",12,2,3,5,4,8,7, "tres"]
+        let numero = [];
+        for(let index = 0; index<= inicio.length ; index ++){
+         
+            if( typeof inicio[index] =="number"){
+                numero.push(inicio[index]) ;
+                for( let i = 0; i < numero.length -1; i++){
+                    for( let j = 0; j<numero.length- i -1; j++){
+                        if(numero[j] > numero[j+1]){
+                            [numero[j], numero[j+1]]=[numero[j+1], numero[j]];
+                        }
+                    }
+                }
+            }
+
+        }
+        console.log(numero);
+        
+        const ul = document.getElementById ("ord");
+        numero.forEach(number =>{
+            const li = document.createElement ("li");
+            li.innerHTML = number;
+            ul.append(li);
+        });   
+    </script>
+</body>
+</html>
