@@ -136,6 +136,23 @@ class Profesor extends Persona{
         
 let user = new Profesor("John", "34");
 user.obtDetalles();
+
+// Ejercicio bonus 
+function obtenerCombinacion(palabra){
+    
+    if( typeof palabra != 'string'){
+        throw TypeError("El dato ingresado no es una palabra")
+    }
+    if(palabra.length <= 2){
+        return palabra.length ===2 ? [palabra, palabra[1] + palabra[0]] : [palabra];    }
+
+return palabra.split("")
+.reduce((a, c, i) =>
+a.concat(obtenerCombinacion(palabra.slice(0,i) + palabra.slice(i+1)).map( v => c+v)), []);
+}
+let comb = prompt ("Ingresa una palabra");
+let resultado = obtenerCombinacion(comb);
+console.log(resultado);
     </script>
 </body>
 </html>
