@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Ejercicio 1 : - Colocar las condiciones necesarias para que se cumpla la salida en consola
+
+var numero1 = 5;
+var numero2 = 8;
+if(numero1 < numero2) {
+console.log("numero1 no es mayor que numero2");
+}
+if(numero2 > 0) {
+console.log("numero2 es positivo");
+}
+if(numero1 < 0) {
+console.log("numero1 es negativo o distinto de cero");
+}
+if((numero1 + 1) < numero2 || (numero1 +1) != numero2 ) {
+console.log("Incrementar en 1 unidad el valor de numero1 no lo hace mayor o igual que numero2");
+}
+
+//Ejercicio2 : Utilizando la estructura crear un script que calcule la factorial de un número entero.
+
+let entero = prompt ("Ingresa un numero entero");
+let factorial = 1;
+for(let i = 1; i<=n ; i++){
+    factorial = factorial * i;
+}
+console.log(factorial)
+
+// Ejercicio 3: Escribir el código de una función a la que se pasa como parámetro un número entero y devuelve como resultado una cadena de texto que indica si el número es par o impar.
+function esPar(num){
+    if (parseInt(num) % 2== 0 ){
+        return("El numero " + num + " es par" )
+}else{
+    return("El numero " + num + " es impar")
+}
+
+}
+let numero = prompt("ingrese un numero entero");
+let result = esPar(numero);
+document.write(result);
+
+// Ejercicio 4 : Definir una función determine si la cadena de texto que se le pasa como parámetro es un palíndromo, es decir, si se lee de la misma forma desde la izquierda y desde la derecha. 
+function palindromo( cadena){
+    let resultado = "La cadena \""+cadena+"\" \n";
+    let cadenaOriginal = cadena.toLowerCase();
+    let letras = cadenaOriginal.split("");
+
+    let  cadenaSinEspacios = "";
+  for(i in letras) {
+    if(letras[i] != " ") {
+      cadenaSinEspacios += letras[i];
+    }
+  }
+
+  let letters = cadenaSinEspacios.split("");
+  let letrasReves = cadenaSinEspacios.split("").reverse();
+  let iguales = true;
+  for(i in letters) {
+    if(letters[i] == letrasReves[i]) {
+      // Todo bien
+    }
+    else {
+      // Alguna letra es distinta, por lo que ya no es un palindromo
+      iguales = false;
+    }
+  }
+
+  if(iguales) {
+    resultado += " es un palíndromo";
+  }
+  else {
+    resultado += " no es un palíndromo";
+  }
+
+  return resultado;
+
+}
+console.log(palindromo("La ruta nos aporto otro paso natural"));
+
+//Ejercicio 5
+
+class Persona {
+    constructor(nombre, edad){
+        this.nombre = nombre;
+        this.edad = edad;    }
+
+obtDetalles(){
+    console.log(this.nombre);
+    console.log(this.edad);
+}
+}
+// Clase Estudiante, hereda de Persona, e incluye las propiedad de calificación
+class Estudiante extends Persona{
+    constructor(nombre, edad , calificacion){
+        super(nombre, edad);
+        this.calificacion = calificacion;
+
+        } 
+// Sobreescribir el método obtDetalles() para imprimir en consola los detalles de persona y la calificación
+
+        obtDetalles(){
+    console.log("Hola, mi nombre es " + this.nombre);
+    console.log(`Tengo ${this.edad} años`);
+    console.log(`Mi calificacion es  ${this.calificacion} `);
+}
+
+}
+// Clase Profesor, que hereda de Persona, e incluye las propiedades asignatura y nivel.
+
+class Profesor extends Persona{
+    constructor(nombre, edad , asignatura = "JS", nivel = "basico"){
+        super(nombre, edad);
+        this.asignatura = asignatura;
+        this.nivel = nivel;
+
+        } 
+ // Sobreescribir el método obtener detalles para imprimir todas las propiedades de persona más todas las propiedades de profesor.
+
+        obtDetalles(){
+    console.log("Hola, mi nombre es " + this.nombre);
+    console.log(`Tengo ${this.edad} años`);
+    console.log(`Mi asignatura es  ${this.asignatura} `);
+    console.log(`El nivel es  ${this.nivel} `);
+}
+}
+
+
+        
+let user = new Profesor("John", "34");
+user.obtDetalles();
+    </script>
+</body>
+</html>
